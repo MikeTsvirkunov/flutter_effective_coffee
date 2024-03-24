@@ -34,18 +34,13 @@ class GoodCard extends StatelessWidget {
             height: 120,
             child: Container(
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                fit: BoxFit.fill,
-                alignment: FractionalOffset.topCenter,
-                image: NetworkImage(imageUrl),
-              )),
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  alignment: FractionalOffset.topCenter,
+                  image: NetworkImage(imageUrl),
+                ),
+              ),
             ),
-            // child: CachedNetworkImage(
-            //   imageUrl: imageUrl,
-            //   placeholder: (context, url) => const CircularProgressIndicator(),
-            //   errorWidget: (context, url, error) => const Icon(Icons.error),
-            //   fit: BoxFit.cover,
-            // ),
           ),
           const SizedBox(
             height: 16,

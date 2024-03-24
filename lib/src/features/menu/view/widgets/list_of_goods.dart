@@ -73,7 +73,7 @@ class _ListOfGoodsState extends State<ListOfGoods> {
                               Orientation.portrait
                           ? 2
                           : 4,
-                      childAspectRatio: 0.6,
+                      childAspectRatio: 0.65,
                     ),
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
