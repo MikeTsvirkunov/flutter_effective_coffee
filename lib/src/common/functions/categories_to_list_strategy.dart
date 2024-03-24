@@ -6,9 +6,9 @@ class CategoriesToListStrategy implements StrategyInterface {
   @override
   T execute<T>(IExtractable? args) {
     var categories =
-        ContainerExtractor.extract<Iterable<String>>(args!, 'categories');
-    // var l = List.generate(, (index) => null)
-    // categories.toList();
+        ContainerExtractor.extract<Map<String, dynamic>>(args!, 'categories')
+            .keys;
+
     return categories.toList() as T;
   }
 }

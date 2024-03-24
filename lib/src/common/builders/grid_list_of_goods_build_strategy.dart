@@ -7,8 +7,10 @@ import 'package:flutter_course/src/common/interfaces/interface_strategy.dart';
 import 'package:flutter_course/src/common/values/functions_container.dart';
 import 'package:flutter_course/src/common/values/global_variables_container.dart';
 import 'package:flutter_course/src/features/menu/bloc/good_model.dart';
+import 'package:flutter_course/src/features/menu/bloc/list_of_goods_model.dart';
 import 'package:flutter_course/src/features/menu/view/widgets/category_header.dart';
 import 'package:flutter_course/src/features/menu/view/widgets/scroll_tab_checker.dart';
+import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class GridListOfGoodsBuildStrategy implements StrategyInterface {
@@ -39,6 +41,7 @@ class GridListOfGoodsBuildStrategy implements StrategyInterface {
       itemScrollController,
     );
     return Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: PreferredSize(
             preferredSize: const Size.fromHeight(50),
             child: ScrollTabChecker(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_course/src/common/containers/container_extractor.dart';
@@ -7,12 +8,12 @@ import 'package:flutter_course/src/features/menu/view/widgets/good_card_button.d
 class GoodCard extends StatelessWidget {
   final String id;
   final String name;
-  final Uint8List image;
+  final String imageUrl;
   final String price;
   const GoodCard({
     super.key,
     required this.name,
-    required this.image,
+    required this.imageUrl,
     required this.id,
     required this.price,
   });
@@ -27,11 +28,24 @@ class GoodCard extends StatelessWidget {
         color: Colors.white,
       ),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.memory(
-            image,
-            fit: BoxFit.fill,
+          SizedBox(
+            height: 120,
+            child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                fit: BoxFit.fill,
+                alignment: FractionalOffset.topCenter,
+                image: NetworkImage(imageUrl),
+              )),
+            ),
+            // child: CachedNetworkImage(
+            //   imageUrl: imageUrl,
+            //   placeholder: (context, url) => const CircularProgressIndicator(),
+            //   errorWidget: (context, url, error) => const Icon(Icons.error),
+            //   fit: BoxFit.cover,
+            // ),
           ),
           const SizedBox(
             height: 16,

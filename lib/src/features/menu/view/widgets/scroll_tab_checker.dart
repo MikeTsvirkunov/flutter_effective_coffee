@@ -16,31 +16,21 @@ class ScrollTabChecker extends StatefulWidget {
 }
 
 class _ScrollTabChackerState extends State<ScrollTabChecker> {
-  late List<String> x;
-  late Map<String, int> p;
-  @override
-  void initState() {
-    x = ContainerExtractor.extract<StrategyInterface>(
-      functionsContainer,
-      'ScrollTabContainer.Processors.CategoriesToList',
-    ).execute<List<String>>(
-      ConstantContainer({'categories': widget.categories}),
-    );
-    p = {for (var element in x) element: 0};
-    super.initState();
-  }
+  late List<String> x = ContainerExtractor.extract<StrategyInterface>(
+    functionsContainer,
+    'ScrollTabContainer.Processors.CategoriesToList',
+  ).execute<List<String>>(
+    ConstantContainer({'categories': widget.categories}),
+  );
+  late Map<String, int> p = {for (var element in x) element: 0};
 
-// "the expensve coffe"
-// [1]:
-// "the expensve coffe with milk"
-// [2]:
-// "the expensve tea"
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        child: Padding(
+        child: Container(
+          color: Colors.transparent,
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Wrap(
             spacing: 10,

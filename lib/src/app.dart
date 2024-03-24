@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course/src/common/getters/get_list_of_goods_strategy.dart';
 import 'package:flutter_course/src/common/network/get_all_goods_strategy.dart';
 import 'package:flutter_course/src/features/menu/bloc/list_of_goods_model.dart';
-import 'package:flutter_course/src/theme/app_colors.dart';
 import 'package:flutter_course/src/theme/theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_course/src/features/menu/view/widgets/list_of_goods.dart';
+import 'package:provider/provider.dart';
 
 class CoffeeShopApp extends StatelessWidget {
   const CoffeeShopApp({super.key});
@@ -38,28 +39,24 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
-  late ListOfGoodsModel x;
-  @override
-  void initState() {
-    x = ListOfGoodsModel();
-
-    super.initState();
-  }
+  late ListOfGoodsModel x = ListOfGoodsModel();
 
   @override
   Widget build(BuildContext context) {
-    // ScrollTabChecker(
-    //           categories: glf.keys,
-    //         )
-    return const Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
-        child: SizedBox(
-          height: 40,
+    return Scaffold(
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(50),
+          child: SizedBox(
+            height: 40,
+          ),
         ),
-      ),
-      body: const ListOfGoods(),
-    );
+        body: FutureProvider<ListOfGoodsModel>(
+          initialData: ListOfGoodsModel(),
+          create: (context) => GetListOfGoodsStrategy().execute(null),
+          child: const ListOfGoods(),
+        )
+        // body: const ListOfGoods(),
+        );
     // );
   }
 }

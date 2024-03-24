@@ -1,17 +1,18 @@
 import 'dart:convert';
 import 'package:flutter_course/src/common/interfaces/interface_async_strategy.dart';
 import 'package:flutter_course/src/common/interfaces/interface_extractable.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:http/http.dart' as http;
 
 class GetAllGoodsStrategy extends AsyncStrategyInterface {
   @override
   Future<T> execute<T>(IExtractable? args) async {
-    var r = await rootBundle
-        .loadString('assets/test_data/list_of_goods.json')
-        .then((jsonStr) => jsonDecode(jsonStr) as Map<dynamic, dynamic>);
-    return await Future<Map<dynamic, dynamic>>.delayed(
-      const Duration(seconds: 2),
-      () => r,
-    ) as T;
+    var url = Uri.parse(
+      'https://coffeeshop.academy.effective.band/api/v1/products/?page=0&limit=50',
+    );
+    final response = await http.get(url).then((jsonStr) {
+      return jsonDecode(utf8.decode(jsonStr.bodyBytes))
+          as Map<dynamic, dynamic>;
+    });
+    return response as T;
   }
 }

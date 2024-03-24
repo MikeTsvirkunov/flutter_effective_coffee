@@ -1,38 +1,17 @@
-import 'dart:typed_data';
-
-import 'package:flutter_course/src/common/interfaces/interface_ided.dart';
-import 'package:flutter_course/src/common/interfaces/interface_imaged.dart';
-import 'package:flutter_course/src/common/interfaces/interface_named.dart';
-import 'package:flutter_course/src/common/interfaces/interface_prieced.dart';
-import 'package:flutter_course/src/common/interfaces/interface_subtyped.dart';
-
-class GoodModel
-    implements
-        IdedInterface,
-        PriecedInterface,
-        NamedInterface,
-        ImagedInteface,
-        SubtypedInteface {
-  @override
-  late Uint8List image;
-
-  @override
-  late String name;
-
-  @override
-  late double priece;
-
-  @override
-  late String subtype;
+class GoodModel {
+  final String currency;
+  final String id;
+  final String name;
+  final double priece;
+  final String subtype;
+  final String imageUrl;
 
   GoodModel({
     required this.id,
     required this.name,
     required this.priece,
     required this.subtype,
-    required this.image,
+    required this.imageUrl,
+    required this.currency,
   });
-
-  @override
-  String id;
 }

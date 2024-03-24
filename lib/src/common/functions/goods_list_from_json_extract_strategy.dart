@@ -9,8 +9,7 @@ class GoodsListFromJsonExtractStrategy implements StrategyInterface {
       args!,
       'json_map',
     );
-    var p = jsonMap.containsKey('list_of_goods');
-    var e = jsonMap['list_of_goods'];
+    var e = jsonMap['data'];
     return e as T;
   }
 }

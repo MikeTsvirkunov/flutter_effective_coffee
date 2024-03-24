@@ -20,10 +20,9 @@ class CategoryTag extends StatefulWidget {
 }
 
 class _StdInterestTagCheckableState extends State<CategoryTag> {
-  late bool selected;
+  bool selected = false;
   @override
   void initState() {
-    selected = false;
     super.initState();
   }
 
