@@ -1,0 +1,88 @@
+{
+    "list_of_goods": [
+        {
+            "id": 123456789,
+            "name": "Coffe1",
+            "subtype": "the expensve coffe",
+            "price": 123.33
+        },
+        {
+            "id": 223456789,
+            "name": "Coffe2",
+            "subtype": "the expensve coffe",
+            "price": 23.33
+        },
+        {
+            "id": 323456789,
+            "name": "Coffe3",
+            "subtype": "the expensve coffe",
+            "price": 1023.33
+        },
+        {
+            "id": 423456789,
+            "name": "Coffe4",
+            "subtype": "the expensve coffe",
+            "price": 123.00
+        },
+        {
+            "id": 523456789,
+            "name": "Coffe5",
+            "subtype": "the expensve coffe",
+            "price": 123.33
+        },
+        {
+            "id": 123456788,
+            "name": "Coffe with milk 1",
+            "subtype": "the expensve coffe with milk",
+            "price": 123.33
+        },
+        {
+            "id": 223456788,
+            "name": "Coffe with milk 2",
+            "subtype": "the expensve coffe with milk",
+            "price": 23.33
+        },
+        {
+            "id": 323456788,
+            "name": "Coffe with milk 3",
+            "subtype": "the expensve coffe with milk",
+            "price": 1023.33
+        },
+        {
+            "id": 423456788,
+            "name": "Coffe  with milk 4",
+            "subtype": "the expensve coffe with milk",
+            "price": 123.00
+        },
+        {
+            "id": 123456787,
+            "name": "the expensve tea1",
+            "subtype": "the expensve tea",
+            "price": 123.33
+        },
+        {
+            "id": 223456787,
+            "name": "the expensve tea2",
+            "subtype": "the expensve tea",
+            "price": 23.33
+        },
+        {
+            "id": 323456787,
+            "name": "the expensve tea3",
+            "subtype": "the expensve tea",
+            "price": 1023.33
+        },
+        {
+            "id": 423456787,
+            "name": "the expensve tea4",
+            "subtype": "the expensve tea",
+            "price": 123.00
+        },
+        {
+            "id": 423456787,
+            "name": "the expensve tea5",
+            "subtype": "the expensve tea",
+            "price": 123.33
+        }
+    ]
+}
