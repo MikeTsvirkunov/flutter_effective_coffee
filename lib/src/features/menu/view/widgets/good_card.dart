@@ -1,21 +1,12 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_course/src/common/containers/container_extractor.dart';
-import 'package:flutter_course/src/common/values/text_styles_container.dart';
+import 'package:flutter_course/src/features/menu/bloc/good_model.dart';
 import 'package:flutter_course/src/features/menu/view/widgets/good_card_button.dart';
 
 class GoodCard extends StatelessWidget {
-  final String id;
-  final String name;
-  final String imageUrl;
-  final String price;
+  final GoodModel goodModel;
   const GoodCard({
     super.key,
-    required this.name,
-    required this.imageUrl,
-    required this.id,
-    required this.price,
+    required this.goodModel,
   });
 
   @override
@@ -37,7 +28,7 @@ class GoodCard extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   alignment: FractionalOffset.topCenter,
-                  image: NetworkImage(imageUrl),
+                  image: NetworkImage(goodModel.imageUrl),
                 ),
               ),
             ),
@@ -45,14 +36,13 @@ class GoodCard extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          Text(name, style: Theme.of(context).textTheme.displaySmall),
+          Text(goodModel.name, style: Theme.of(context).textTheme.displaySmall),
           const SizedBox(
             height: 16,
           ),
           GoodCardButton(
-            goodID: id,
-            price: price,
-          )
+            goodModel: goodModel,
+          ),
         ],
       ),
     );

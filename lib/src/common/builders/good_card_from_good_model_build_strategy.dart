@@ -9,10 +9,7 @@ class GoodCardFromGoodModelStrategy implements StrategyInterface {
   T execute<T>(IExtractable? args) {
     var goodModel = ContainerExtractor.extract<GoodModel>(args!, 'good_model');
     return GoodCard(
-      name: goodModel.name,
-      imageUrl: goodModel.imageUrl,
-      id: goodModel.id,
-      price: goodModel.priece.toString(),
+      goodModel: goodModel,
     ) as T;
   }
 }

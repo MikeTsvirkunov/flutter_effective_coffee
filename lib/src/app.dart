@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_course/src/common/getters/get_list_of_goods_strategy.dart';
 import 'package:flutter_course/src/common/network/get_all_goods_strategy.dart';
+import 'package:flutter_course/src/features/buck/bloc/buck_model.dart';
+import 'package:flutter_course/src/features/buck/view/bucket_panel.dart';
+import 'package:flutter_course/src/features/buck/view/slideing_up_bucket.dart';
 import 'package:flutter_course/src/features/menu/bloc/list_of_goods_model.dart';
 import 'package:flutter_course/src/theme/theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'package:flutter_course/src/features/menu/view/widgets/list_of_goods.dart';
 import 'package:provider/provider.dart';
 
 class CoffeeShopApp extends StatelessWidget {
@@ -44,19 +44,16 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const PreferredSize(
-          preferredSize: Size.fromHeight(50),
-          child: SizedBox(
-            height: 40,
-          ),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: SizedBox(
+          height: 40,
         ),
-        body: FutureProvider<ListOfGoodsModel>(
-          initialData: ListOfGoodsModel(),
-          create: (context) => GetListOfGoodsStrategy().execute(null),
-          child: const ListOfGoods(),
-        )
-        // body: const ListOfGoods(),
-        );
-    // );
+      ),
+      body: ChangeNotifierProvider<BuckModel>(
+        create: (BuildContext context) => BuckModel(goodsInBuck: {}),
+        child: const SlidingUpBucket(),
+      ),
+    );
   }
 }
