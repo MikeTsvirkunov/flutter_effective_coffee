@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_course/src/common/containers/constant_container.dart';
 import 'package:flutter_course/src/common/network/post_order_strategy.dart';
 import 'package:flutter_course/src/features/buck/bloc/buck_model.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 
@@ -23,11 +24,19 @@ class _BucketPanelState extends State<BucketPanel> {
             style: Theme.of(context).textTheme.displayLarge,
           ),
           actions: [
-            IconButton(
-              onPressed: () {
-                value.clearBucket();
-              },
-              icon: const Icon(Icons.delete),
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: IconButton(
+                onPressed: () {
+                  value.clearBucket();
+                },
+                icon: SvgPicture.asset(
+                  'assets/images/trash.svg',
+                  width: 35,
+                  height: 35,
+                  // fit: BoxFit.fill,
+                ),
+              ),
             ),
           ],
         ),
@@ -73,7 +82,7 @@ class _BucketPanelState extends State<BucketPanel> {
                   .execute<Response>(ConstantContainer({'buck': value}));
 
               final snackBar = SnackBar(
-                duration: Duration(seconds: 2),
+                duration: const Duration(seconds: 2),
                 content: Text(x.statusCode == 201 ? 'Success' : 'Bad'),
               );
               if (x.statusCode == 201) value.clearBucket();

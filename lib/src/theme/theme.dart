@@ -7,7 +7,7 @@ final theme = ThemeData(
       seedColor: Color(0xffF7FAF8),
       background: Color(0xffF7FAF8),
       primary: Color(0xffF7FAF8)),
-  cardTheme: const CardTheme(color: Colors.white),
+  cardTheme: const CardTheme(color: Color(0xffF7FAF8)),
   textTheme: const TextTheme(
     displayLarge: TextStyle(
       fontWeight: FontWeight.w600,
@@ -36,6 +36,12 @@ final theme = ThemeData(
       fontWeight: FontWeight.w400,
       color: Colors.white,
       fontSize: 12,
+      fontFamily: 'Roboto',
+    ),
+    titleSmall: TextStyle(
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+      fontSize: 14,
       fontFamily: 'Roboto',
     ),
   ),
