@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_course/src/common/containers/container_extractor.dart';
 import 'package:flutter_course/src/common/interfaces/interface_async_strategy.dart';
 import 'package:flutter_course/src/common/interfaces/interface_extractable.dart';
 

@@ -20,6 +20,18 @@ final theme = ThemeData(
       fontSize: 16,
       fontFamily: 'Roboto',
     ),
+    labelMedium: TextStyle(
+      fontWeight: FontWeight.w700,
+      color: Colors.black,
+      fontSize: 16,
+      fontFamily: 'Roboto',
+    ),
+    titleMedium: TextStyle(
+      fontWeight: FontWeight.w500,
+      color: Colors.black,
+      fontSize: 16,
+      fontFamily: 'Roboto',
+    ),
     labelLarge: TextStyle(
       fontWeight: FontWeight.w400,
       color: Colors.white,

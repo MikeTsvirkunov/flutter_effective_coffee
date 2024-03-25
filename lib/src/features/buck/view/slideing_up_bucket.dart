@@ -18,7 +18,6 @@ class _SlidingUpBucketState extends State<SlidingUpBucket> {
   @override
   Widget build(BuildContext context) {
     return SlidingUpPanel(
-      boxShadow: [],
       minHeight: 30,
       collapsed: Container(
         height: 30,

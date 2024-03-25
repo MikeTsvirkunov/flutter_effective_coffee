@@ -30,8 +30,10 @@ class _GoodCardButtonState extends State<GoodCardButton> {
         var defaultButton = IconButton(
           onPressed: () {
             setState(() {
-              value.updateBucket(widget.goodModel,
-                  value.goodsInBuck[widget.goodModel] ?? 0 + 1);
+              value.updateBucket(
+                widget.goodModel,
+                (value.goodsInBuck[widget.goodModel] ?? 0) + 1,
+              );
             });
           },
           icon: Container(
@@ -52,8 +54,10 @@ class _GoodCardButtonState extends State<GoodCardButton> {
           children: [
             IconButton(
               onPressed: () => setState(() {
-                value.updateBucket(widget.goodModel,
-                    value.goodsInBuck[widget.goodModel] ?? 1 - 1);
+                value.updateBucket(
+                  widget.goodModel,
+                  (value.goodsInBuck[widget.goodModel] ?? 1) - 1,
+                );
               }),
               icon: Container(
                 width: 24,
@@ -86,8 +90,10 @@ class _GoodCardButtonState extends State<GoodCardButton> {
             ),
             IconButton(
               onPressed: () => setState(() {
-                value.updateBucket(widget.goodModel,
-                    value.goodsInBuck[widget.goodModel] ?? 0 + 1);
+                value.updateBucket(
+                  widget.goodModel,
+                  (value.goodsInBuck[widget.goodModel] ?? 0) + 1,
+                );
               }),
               icon: Container(
                 width: 24,

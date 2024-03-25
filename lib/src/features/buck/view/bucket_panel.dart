@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course/src/common/containers/constant_container.dart';
+import 'package:flutter_course/src/common/network/post_order_strategy.dart';
 import 'package:flutter_course/src/features/buck/bloc/buck_model.dart';
+import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 
 class BucketPanel extends StatefulWidget {
@@ -15,7 +18,10 @@ class _BucketPanelState extends State<BucketPanel> {
     return Consumer<BuckModel>(
       builder: (context, value, child) => Scaffold(
         appBar: AppBar(
-          title: const Text('Ваш заказ'),
+          title: Text(
+            'Ваш заказ',
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
           actions: [
             IconButton(
               onPressed: () {
@@ -49,9 +55,11 @@ class _BucketPanelState extends State<BucketPanel> {
                     ),
                     title: Text(
                       value.goodsInBuck.keys.elementAt(index).name,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     trailing: Text(
                       '${value.goodsInBuck.keys.elementAt(index).priece} ${value.goodsInBuck.keys.elementAt(index).currency}',
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
                   ),
                 ),
@@ -60,7 +68,17 @@ class _BucketPanelState extends State<BucketPanel> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              var x = await PostOrderStrategy()
+                  .execute<Response>(ConstantContainer({'buck': value}));
+
+              final snackBar = SnackBar(
+                duration: Duration(seconds: 2),
+                content: Text(x.statusCode == 201 ? 'Success' : 'Bad'),
+              );
+              if (x.statusCode == 201) value.clearBucket();
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            },
             style: const ButtonStyle(
               shape: MaterialStatePropertyAll(
                 RoundedRectangleBorder(
